@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "target": "es2017",
     "module": "esnext",
     "moduleResolution": "node",
@@ -17,5 +19,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true
-  }
+  },
 }
