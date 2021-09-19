@@ -4,6 +4,7 @@ import babel from "rollup-plugin-babel";
 import serve from "rollup-plugin-serve";
 import { terser } from "rollup-plugin-terser";
 import json from '@rollup/plugin-json';
+import postcss from 'rollup-plugin-postcss';
 
 export default {
   input: ["src/lcars-card.tsx"],
@@ -14,6 +15,9 @@ export default {
   plugins: [
     resolve(),
     typescript(),
+    postcss({
+      plugins: []
+    }),
     json(),
     babel({
       exclude: "node_modules/**",

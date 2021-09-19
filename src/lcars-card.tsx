@@ -4,6 +4,9 @@ import {
 
 import { register } from './register';
 
+import lcarsStyle from './resources/css/lcars.min.css';
+import Dashboard from './components/Dashboard';
+
 // This puts your card into the UI card picker dialog
 (window as any).customCards = (window as any).customCards || [];
 (window as any).customCards.push({
@@ -12,13 +15,17 @@ import { register } from './register';
   description: 'Level 4 Diagnostic',
 });
 
-const LcarsCard = () => {
-  return (<p>Hello LCARS!</p>);
+const LcarsCard = ({ hass }) => {
+  console.log(lcarsStyle);
+  return (<>
+    <style>{lcarsStyle}</style>
+    <Dashboard hass={hass} />
+  </>);
 };
 
-register(LcarsCard, 'lcars-card', []);
+register(LcarsCard, 'lcars-card', ['hass']);
 
-// @customElement('lcars-card')
+ // @customElement('lcars-card')
 // export class LcarsCard extends LitElement {
 //   public static getStubConfig(): object {
 //     return {};

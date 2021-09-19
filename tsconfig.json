@@ -10,6 +10,10 @@
       "dom",
       "dom.iterable"
     ],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/typings.d.ts",
+    ],
     "noEmit": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,

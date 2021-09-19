@@ -7,6 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import serve from 'rollup-plugin-serve';
 import json from '@rollup/plugin-json';
 import jsx from 'acorn-jsx';
+import postcss from 'rollup-plugin-postcss';
 
 const dev = process.env.ROLLUP_WATCH;
 
@@ -23,6 +24,9 @@ const serveopts = {
 const plugins = [
   nodeResolve({}),
   commonjs(),
+  postcss({
+    plugins: []
+  }),
   typescript({ jsx: 'preserve' }),
   json(),
   babel({
