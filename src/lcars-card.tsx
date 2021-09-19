@@ -1,10 +1,10 @@
-import lcarsStyle from './resources/css/lcars.min.css';
+import lcarsStyl from './index.styl';
 import Dashboard from './components/Dashboard';
 
 export const LcarsCard = ({ hass }) => {
-  console.log(lcarsStyle);
+  console.log(lcarsStyl);
   return (<>
-    <style>{lcarsStyle}</style>
+    <style>{lcarsStyl}</style>
     <Dashboard hass={hass} />
   </>);
 };
