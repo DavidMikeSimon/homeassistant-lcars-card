@@ -22,7 +22,7 @@ const Dashboard = ({hass}) => {
       </div>
 
       <div id="container">
-        <div className="lcars-column lcars-u-5">
+        <div className="lcars-column lcars-u-2">
           <Controls hass={hass} />
         </div>
       </div>
