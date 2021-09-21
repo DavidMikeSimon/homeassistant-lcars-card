@@ -7,24 +7,28 @@ bracket-border-size = base-height/4
 
   &.left
     width (base-height/2)
+    min-width (base-height/2)
     border-top-left-radius @width
     border-bottom-left-radius @width
     border-width bracket-border-size 0 bracket-border-size base-spacing
 
   &.right
     width (base-height/2)
+    min-width (base-height/2)
     border-top-right-radius @width
     border-bottom-right-radius @width
     border-width bracket-border-size base-spacing bracket-border-size 0
 
   &.top
     height (base-height/2)
+    min-height (base-height/2)
     border-top-left-radius @height
     border-top-right-radius @height
     border-width base-spacing bracket-border-size 0 bracket-border-size 
 
   &.bottom
     height (base-height/2)
+    min-height (base-height/2)
     border-bottom-left-radius @height
     border-bottom-right-radius @height
     border-width 0 bracket-border-size base-spacing bracket-border-size

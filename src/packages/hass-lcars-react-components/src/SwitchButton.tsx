@@ -9,7 +9,7 @@ export function SwitchButton(props) {
   }
 
   return (
-    <div className="lcars-element left-rounded button" onClick={handleToggle}>
+    <div className="lcars-element left-rounded lcars-u-2 button" onClick={handleToggle}>
       <div className={`lcars-element-decorator right ${on ? 'lcars-lilac-bg' : 'lcars-gray-bg'}`}></div>
       {props.label}
     </div>
