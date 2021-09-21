@@ -4,16 +4,23 @@ import babel from "rollup-plugin-babel";
 import serve from "rollup-plugin-serve";
 import { terser } from "rollup-plugin-terser";
 import json from '@rollup/plugin-json';
+import replace from "@rollup/plugin-replace";
 import postcss from 'rollup-plugin-postcss';
+
+const WATCH = process.env.ROLLUP_WATCH === 'true';
+const ENV = WATCH ? 'dev' : 'prod';
 
 export default {
   input: ["src/index.ts"],
   output: {
-    dir: "./dist",
+    dir: `./dist/${ENV}`,
     format: "es",
   },
   plugins: [
     resolve(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(ENV),
+    }),
     typescript(),
     postcss({
       plugins: []
@@ -23,8 +30,8 @@ export default {
       exclude: "node_modules/**",
     }),
     terser(),
-    serve({
-      contentBase: "./dist",
+    WATCH && serve({
+      contentBase: "./dist/dev",
       host: "0.0.0.0",
       port: 5000,
       allowCrossOrigin: true,
