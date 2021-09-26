@@ -1,21 +1,26 @@
-export function VideoControls(props) {
-  const mediaEntity = props.hass.states[props.mediaEntityId];
+import { JSX } from 'preact';
 
-  function mediaCommand(command, extraArgs = {}) {
-    props.hass.callService('media_player', command, {
+import { useHassContext } from './hassContext';
+
+export function VideoControls(props): JSX.Element {
+  const { hass } = useHassContext();
+  const mediaEntity = hass.states[props.mediaEntityId];
+
+  function mediaCommand(command: string, extraArgs = {}): void {
+    hass.callService('media_player', command, {
       entity_id: mediaEntity.entity_id,
       ...extraArgs
     });
   }
 
-  function setSource(sourceName) {
+  function setSource(sourceName: string): void {
     mediaCommand('turn_on');
     mediaCommand('select_source', { source: sourceName });
   }
 
   return (
     <div class="lcars-row">
-      <div class="lcars-bracket left hollow"></div>
+      <div class="lcars-bracket left hollow" />
       <div class="lcars-column">
         <div class="lcars-row">
           <div class="lcars-element button" onClick={() => setSource('HDMI 4') }>AUX</div>

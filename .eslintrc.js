@@ -5,9 +5,12 @@ module.exports = {
         sourceType: "module" // Allows for the use of imports
     },
     extends: [
-        "plugin:@typescript-eslint/recommended" // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+        "plugin:@typescript-eslint/recommended",
+        "preact"
     ],
     rules: {
-        "@typescript-eslint/no-explicit-any": "off"
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/explicit-function-return-type": ["warn", {allowExpressions: true}],
     }
 };

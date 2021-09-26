@@ -15,13 +15,17 @@ export default {
   output: {
     dir: `./dist/${ENV}`,
     format: "es",
+    sourcemap: ENV == 'dev',
   },
   plugins: [
     resolve(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(ENV),
+      preventAssignment: true,
     }),
-    typescript(),
+    typescript({
+      sourceMap: false, // Conflicts with rollup's own sourcemapper
+    }),
     postcss({
       plugins: []
     }),

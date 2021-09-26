@@ -1,6 +1,6 @@
 import { register } from './register';
 
-import { LcarsCard } from './lcars-card';
+import { LcarsCard } from './components/LcarsCard';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
