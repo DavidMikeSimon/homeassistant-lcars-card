@@ -26,7 +26,11 @@ export function VideoControls(props): JSX.Element {
 
   function setSource(sourceName: string): void {
     mediaCommand('turn_on');
-    mediaCommand('select_source', { source: sourceName });
+    if (sourceName == "App") {
+      remoteCommand("Home");
+    } else {
+      mediaCommand('select_source', { source: sourceName });
+    }
   }
 
   function autoPlayPause(): void {
@@ -56,7 +60,7 @@ export function VideoControls(props): JSX.Element {
             <div class="lcars-element button lcars-vu-2" onMouseUp={() => setSource('HDMI 3/ARC') }>PS4</div>
             <div class="lcars-element button lcars-vu-2" onMouseUp={() => setSource('HDMI 2') }>SWT</div>
             <div class="lcars-element button lcars-vu-2" onMouseUp={() => setSource('HDMI 1') }>DNNS</div>
-            <div class="lcars-element button lcars-vu-2" onMouseUp={() => remoteCommand('Home') }>APP</div>
+            <div class="lcars-element button lcars-vu-2" onMouseUp={() => setSource('App') }>APP</div>
           </div>
           <div class="lcars-row">
             <div class="lcars-element lcars-u-1-2 button" onMouseUp={() => mediaCommand('turn_off')}>OFF</div>
