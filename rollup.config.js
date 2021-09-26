@@ -1,3 +1,4 @@
+import alias from '@rollup/plugin-alias';
 import resolve from "rollup-plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import babel from "rollup-plugin-babel";
@@ -18,6 +19,14 @@ export default {
     sourcemap: ENV == 'dev',
   },
   plugins: [
+    alias({
+      entries: [
+        { find: 'react', replacement: 'preact/compat' },
+        { find: 'react-dom/test-utils', replacement: 'preact/test-utils' },
+        { find: 'react-dom', replacement: 'preact/compat' },
+        { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' }
+      ]
+    }),
     resolve(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(ENV),

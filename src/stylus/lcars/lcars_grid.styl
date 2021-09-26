@@ -17,6 +17,7 @@ build-height-classes(max-y)
   for y in 1..max-y
     .{prefix}vu-{y}
       height ( base-height * y + base-spacing * (y - 1) )
+      min-height ( base-height * y + base-spacing * (y - 1) )
 
 build-height-classes(16)
 
@@ -25,7 +26,11 @@ build-width-classes(max-x)
   for x in 1..max-x
     .{prefix}u-{x}
       width ( base-width * x + base-spacing * (x - 1) )
-      &.half
-        width @width - half-width - (base-spacing/2)
+      min-width ( base-width * x + base-spacing * (x - 1) )
+  for x in 1..max-x
+    .{prefix}u-{x}-half
+      width ( base-width * x * 0.5 + base-spacing * (x - 1) )
+      min-width ( base-width * x * 0.5 + base-spacing * (x - 1) )
+
 
 build-width-classes(16)

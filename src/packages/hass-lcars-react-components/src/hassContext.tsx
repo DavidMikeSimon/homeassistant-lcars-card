@@ -6,6 +6,7 @@ export interface Entity {
   entity_id: string;
   last_changed: string;
   last_updated: string;
+  attributes: {[key: string]: any };
 }
 
 export interface HassObject {
