@@ -18,6 +18,12 @@ export function VideoControls(props): JSX.Element {
     mediaCommand('select_source', { source: sourceName });
   }
 
+  function autoPlayPause(): void {
+    hass.callService('script', 'turn_on', {
+      entity_id: 'script.contextual_media_play_pause'
+    });
+  }
+
   return (
     <div class="lcars-row">
       <div class="lcars-bracket left hollow" />
@@ -35,7 +41,7 @@ export function VideoControls(props): JSX.Element {
             <div class="lcars-element lcars-u-2 button" onClick={() => mediaCommand('volume_up')}>VOL UP</div>
             <div class="lcars-element lcars-u-2 button" onClick={() => mediaCommand('volume_down')}>VOL DN</div>
           </div>
-          <div class="lcars-element lcars-u-2-2 button" onClick={() => mediaCommand('media_play_pause')}>PL/PS</div>
+          <div class="lcars-element lcars-u-2-2 button" onClick={() => autoPlayPause()}>PL/PS</div>
         </div>
       </div>
     </div>
