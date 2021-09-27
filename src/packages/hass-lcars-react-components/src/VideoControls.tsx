@@ -6,8 +6,8 @@ import { useHassContext } from './hassContext';
 export function VideoControls(props): JSX.Element {
   const { mediaEntityId } = props;
   const { hass } = useHassContext();
-  const mediaEntity = hass.states[mediaEntityId];
-  const remoteEntity = hass.states[mediaEntityId.replace("media_player", "remote")];
+  const mediaEntity = hass.states[mediaEntityId] || {};
+  const remoteEntity = hass.states[mediaEntityId.replace("media_player", "remote")] || {};
 
   function mediaCommand(command: string, extraArgs = {}): void {
     hass.callService('media_player', command, {

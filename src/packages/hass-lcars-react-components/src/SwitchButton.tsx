@@ -6,7 +6,7 @@ export function SwitchButton(props): JSX.Element {
   const { entityId, label } = props;
   const { hass, poke } = useHassContext();
 
-  const entity = hass.states[entityId];
+  const entity = hass.states[entityId] || {};
 
   const on = entity.state && entity.state !== 'off' && entity.state != 'unavailable';
 
